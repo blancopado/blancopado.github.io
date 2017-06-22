@@ -31,7 +31,7 @@ paisElt.addEventListener("input", function() {
   sugerenciasElt.innerHTML = ""; // Eliminación de la lista previa de sugerencias
   listaPaises.forEach(function(pais) {
     // Si el valor introducido corresponde al comienzo del nombre de algún país
-    if (pais.indexOf(paisElt.value) === 0) {
+    if (pais.toLowerCase().indexOf(paisElt.value) === 0) {
       var sugerenciaElt = document.createElement("div");
       sugerenciaElt.classList.add("sugerencia");
       sugerenciaElt.textContent = pais;
