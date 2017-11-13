@@ -8,8 +8,10 @@
 
 			for (var i = 0; i < 100; i++) {
 				var newDiv = document.createElement("div");
+				newDiv.innerHTML = 'Hola';
 				document.body.appendChild(newDiv);
 			}
+
 		});
 	}
 
