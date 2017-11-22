@@ -11,6 +11,15 @@ var modelo = {
     this.marcadores.push(nuevoMarcador);
   },
 
+  eliminarMarcador: function(id) {
+    for (var i = 0; i < this.marcadores.length; i++) {
+      if (this.marcadores[i].id == id) {
+        this.marcadores.splice(i, 1);
+        break;
+      }
+    }
+  },
+
   obtenerTodosMarcadores: function() {
     return this.marcadores;
   }
@@ -25,6 +34,12 @@ var modelo = {
 var controlador = {
   agregarMarcador: function(nuevoMarcador) {
     modelo.agregarMarcador(nuevoMarcador);
+
+    vista.representar();
+  },
+
+  eliminarMarcador: function(id) {
+    modelo.eliminarMarcador(id);
 
     vista.representar();
   },
@@ -56,6 +71,14 @@ var vista = {
       controlador.agregarMarcador(nuevoMarcador);
     });
 
+    var listaMarcadores = document.getElementById("lista-marcadores");
+    listaMarcadores.addEventListener("click", function(e) {
+      if (e.target.id === "btn-eliminar") {
+        controlador.eliminarMarcador(e.target.parentNode.id);
+      }
+
+    });
+
   },
 
   representar: function() {
@@ -64,8 +87,8 @@ var vista = {
 
     controlador.obtenerMarcadores().forEach(function(marcador) {
       listaMarcadores.innerHTML += 
-                                    '<div class="well">'
-                                +     '<a href="#" class="btn btn-danger pull-right">X</a>'
+                                    '<div class="well" id=' + marcador.id + '>'
+                                +     '<a href="#" class="btn btn-danger btn-eliminar pull-right" id="btn-eliminar">X</a>'
                                 +     '<h3><a href=http://' + marcador.url + '>' + marcador.nombre + '</a></h3>'
                                 +     '<p>' + marcador.descripcion + '</p>'
                                 +   '</div>'
