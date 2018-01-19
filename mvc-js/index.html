@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>MVC App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Hoja de estilos Bootstrap comprimida -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
+	<head>
+		<meta charset="utf-8">
+		<title>MVC App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <body>
+		<!-- Hoja de estilos Bootstrap comprimida -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
 
-    <div class="container">
-    	<div class="panel-agregacion">
-	    	<h1>MVC marcadores</h1>
-	    	<div class="well">
-	    		<form id="form-marcadores">
-		    		<div class="form-group">
+	<body>
+		<div class="container">
+			<div class="panel-agregacion">
+		    	<h1>MVC marcadores</h1>
+		    	<div class="well">
+		    		<form id="form-marcadores">
+			    		<div class="form-group">
 							<label for="nombre-input">Nombre</label>
-							<input name="nombre" type="text" class="form-control" id="nombre-input" placeholder="Nombre de la página">
+							<input name="nombre" type="text" class="form-control" id="nombre-input" placeholder="Nombre de la página" required>
 						</div>
-						
+							
 						<div class="form-group">
 							<label for="desc-input">Descripción</label>
 							<input name="descripcion" type="text" class="form-control" id="desc-input" placeholder="Descripción corta">
@@ -28,26 +27,26 @@
 
 						 <div class="form-group">
 							<label for="url-input">Dirección URL</label>
-							<input name="url" ype="text" class="form-control" id="url-input" placeholder="Url">
+							<input name="url" ype="text" class="form-control" id="url-input" placeholder="Por ejemplo: google.com" required>
 						</div>
 
-						<button type="submit" class="btn btn-primary">Añadir</button>
+						<button type="submit" class="btn btn-success">Añadir</button>
 					</form>
-		    </div>
-		  </div>
+			    </div>
+			</div>
 
-	    <div id="lista-marcadores">
+			<div id="lista-marcadores"></div>
 
-   		</div>
-    </div>
+		</div>
 
 
 		<!-- Biblioteca jQuery (requerida por Bootstrap) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-		<!-- Latest compiled JavaScript -->
+		<!-- Bootstrap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+		<!-- Mi código JS -->
 		<script src="js/scripts.js"></script>
-  </body>
+	</body>
 </html>

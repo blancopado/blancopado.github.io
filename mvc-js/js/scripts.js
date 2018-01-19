@@ -1,3 +1,4 @@
+(function() {
 /*****
 
   Modelo
@@ -20,7 +21,7 @@ var modelo = {
     }
   },
 
-  obtenerTodosMarcadores: function() {
+  obtenerMarcadores: function() {
     return this.marcadores;
   }
 };
@@ -32,20 +33,22 @@ var modelo = {
 *****/
 
 var controlador = {
+  init: function() {
+    vista.init();
+  },
+
   agregarMarcador: function(nuevoMarcador) {
     modelo.agregarMarcador(nuevoMarcador);
-
     vista.representar();
   },
 
   eliminarMarcador: function(id) {
     modelo.eliminarMarcador(id);
-
     vista.representar();
   },
 
   obtenerMarcadores: function() {
-    return modelo.obtenerTodosMarcadores();
+    return modelo.obtenerMarcadores();
   }
 };
 
@@ -76,9 +79,7 @@ var vista = {
       if (e.target.id === "btn-eliminar") {
         controlador.eliminarMarcador(e.target.parentNode.id);
       }
-
-    });
-
+    }); 
   },
 
   representar: function() {
@@ -88,8 +89,8 @@ var vista = {
     controlador.obtenerMarcadores().forEach(function(marcador) {
       listaMarcadores.innerHTML += 
                                     '<div class="well" id=' + marcador.id + '>'
-                                +     '<a href="#" class="btn btn-danger btn-eliminar pull-right" id="btn-eliminar">X</a>'
-                                +     '<h3><a href=http://' + marcador.url + '>' + marcador.nombre + '</a></h3>'
+                                +     '<a href="#" class="btn btn-danger pull-right" id="btn-eliminar">X</a>'
+                                +     '<h3 id="titulo"><a target="_blank" href=http://' + marcador.url + '>' + marcador.nombre + '</a></h3>'
                                 +     '<p>' + marcador.descripcion + '</p>'
                                 +   '</div>'
     });
@@ -98,4 +99,6 @@ var vista = {
 };
 
 
-vista.init();
+controlador.init();
+
+})();
